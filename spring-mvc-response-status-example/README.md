@@ -84,7 +84,7 @@ public class ExceptionController {
 
 
 ## 注意事项
-标记有@ReponseStatus注解的方法不能抛出异常，否则此注解会失效。
+1.标记有@ReponseStatus注解的方法不能抛出异常，否则此注解会失效。
 
 如
 ```java
@@ -103,3 +103,46 @@ public class ExceptionController {
 ```
 此时访问相就的链接，不会返回期待的错误页面而是       
 ![错误页面](exception.png)
+
+2.标记有@ReponseStatus注解的方法返回的是ResponseEntity或重定向"redirect:/path"，此注解会失效。  
+如
+```java
+@RequestMapping("/exception")
+@Controller
+public class ExceptionController {
+
+    @RequestMapping("/myException04")
+    @ResponseStatus(value = HttpStatus.BAD_GATEWAY, reason = "bad gateway")
+    public ResponseEntity<String> myException04(){
+        ResponseEntity<String> entity = new ResponseEntity<>("hello", HttpStatus.BAD_GATEWAY);
+        return entity;
+    }
+
+    @RequestMapping("/myException05")
+    @ResponseStatus(value = HttpStatus.BAD_GATEWAY, reason = "bad gateway")
+    public String myException05() {
+        return "redirect:/exception/myException";
+    }
+}
+```
+访问/exception/myException04返回的是如下页面， @ResponseStatus注解失效了。  
+![错误页面](hello.png)
+
+
+3.标记有@ReponseStatus注解的异常，将来会用到HttpServletReponse.sendError，如果你在代码中也用到了HttpServletReponse.sendError
+将会抛出IllegalStateException。
+
+如
+```java
+@RequestMapping("/exception")
+@Controller
+public class ExceptionController {
+    @ResponseStatus(value = HttpStatus.BAD_GATEWAY, reason = "bad gateway")
+    @RequestMapping("/myException06")
+    public void myException06(HttpServletResponse response) throws IOException {
+        response.sendError(500, "error 500");
+    }
+}
+```
+访问此链接将会抛出    
+![错误页面](commit.png)
