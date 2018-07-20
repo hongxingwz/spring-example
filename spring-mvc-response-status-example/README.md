@@ -34,7 +34,7 @@ public class ExceptionController {
     }
 }
 ```
-此时访问页面的会返回如下：
+此时访问页面的会返回如下：        
 ![错误页面](internal.png)
 
 ##用于标记有@Controller的类
