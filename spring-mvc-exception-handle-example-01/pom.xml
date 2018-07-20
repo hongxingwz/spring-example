@@ -9,17 +9,12 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-mvc-response-status-example</artifactId>
+    <artifactId>spring-mvc-exception-handle-example-01</artifactId>
     <packaging>war</packaging>
 
-    <name>spring-mvc-response-status-example Maven Webapp</name>
-    <url>https://github.com/hongxingwz/spring-example/tree/master/spring-mvc-response-status-example</url>
+    <name>spring-mvc-exception-handle-example-01 Maven Webapp</name>
+    <url>http://www.example.com</url>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
 
     <dependencies>
         <dependency>
@@ -34,14 +29,20 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
-        <finalName>spring-mvc-response-status-example</finalName>
+        <finalName>spring-mvc-exception-handle-example-01</finalName>
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
             <plugins>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                 </plugin>
+                <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_war_packaging -->
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
                 </plugin>
@@ -61,5 +62,6 @@
                     <artifactId>maven-deploy-plugin</artifactId>
                 </plugin>
             </plugins>
+        </pluginManagement>
     </build>
 </project>
