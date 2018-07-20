@@ -109,7 +109,7 @@ public class MyControllerAdvice {
 }
 ```
 
-##总结
+## 总结
 这三种异常处理混合使用的时候，一定要注意顺序。     
 ![示例](order.png)
 DispathcerServlet默认注册了HandlerExceptionResolverComposite其Order为0
