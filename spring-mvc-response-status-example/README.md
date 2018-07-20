@@ -58,7 +58,7 @@ public class ExceptionController2 {
 }
 
 ```
-此时访问相应的链接会返回如下错误页面：
+此时访问相应的链接会返回如下错误页面：      
 ![错误页面](forbidden.png)
 
 
@@ -79,7 +79,7 @@ public class ExceptionController {
     }
 }
 ```
-此时访问相应的链接会返回如下错误页面：
+此时访问相应的链接会返回如下错误页面：       
 ![错误页面](badgateway.png)
 
 
@@ -101,5 +101,5 @@ public class ExceptionController {
     }
 }
 ```
-此时访问相就的链接，不会返回期待的错误页面而是
+此时访问相就的链接，不会返回期待的错误页面而是       
 ![错误页面](exception.png)
