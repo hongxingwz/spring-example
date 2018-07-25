@@ -10,6 +10,8 @@
     <modules>
         <module>spring-mvc-response-status-example</module>
         <module>spring-mvc-exception-handle-example-01</module>
+        <module>spring-mvc-interceptor-example-01</module>
+        <module>spring-mvc-java-config-01</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -47,6 +49,11 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>4.0.1</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

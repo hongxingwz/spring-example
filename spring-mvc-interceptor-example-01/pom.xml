@@ -12,8 +12,8 @@
     <artifactId>spring-mvc-interceptor-example-01</artifactId>
     <packaging>war</packaging>
 
-    <name>spring-mvc-interceptor-example-01 Maven Webapp</name>
-    <url>http://www.example.com</url>
+    <name>spring-mvc-interceptor-example-01</name>
+    <url>https://github.com/hongxingwz/spring-example/tree/master/spring-mvc-interceptor-example-01</url>
 
 
     <dependencies>
@@ -37,30 +37,5 @@
 
     <build>
         <finalName>spring-mvc-interceptor-example-01</finalName>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <artifactId>maven-clean-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-resources-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-war-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-install-plugin</artifactId>
-                </plugin>
-                <plugin>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>
