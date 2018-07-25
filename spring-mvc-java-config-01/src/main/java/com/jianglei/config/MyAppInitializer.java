@@ -21,4 +21,5 @@ public class MyAppInitializer extends AbstractAnnotationConfigDispatcherServletI
     protected String[] getServletMappings() {
         return new String[]{"/"};
     }
+
 }
