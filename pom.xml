@@ -12,6 +12,8 @@
         <module>spring-mvc-exception-handle-example-01</module>
         <module>spring-mvc-interceptor-example-01</module>
         <module>spring-mvc-java-config-01</module>
+        <module>spring-mvc-context-loader-01</module>
+        <module>spring-mvc-cutom-propert-editor-01</module>
     </modules>
     <packaging>pom</packaging>
 
