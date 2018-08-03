@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="dateEditor" class="com.jianglei.editor.DateEditor">
+        <property name="dateFormat" value="yyyy-MM"/>
+    </bean>
+
+    <bean id="customPropertyEditor" class="com.jianglei.editor.registrar.CustomPropertyEditorRegistrar">
+        <property name="editors">
+            <map>
+                <entry key="java.util.Date" value-ref="dateEditor"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="customPropertyEditor"/>
+            </list>
+        </property>
+        <property name="customEditors">
+            <map>
+                <entry key="java.lang.String" value="com.jianglei.editor.StringEditor"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="dateBean" class="com.jianglei.bean.DateBean">
+        <property name="date" value="2018-09"/>
+    </bean>
+
+    <bean id="stringBean" class="com.jianglei.bean.StringBean">
+        <property name="s1" value="s1"/>
+        <property name="s2" value="s2"/>
+        <property name="s3" value="s3"/>
+    </bean>
+</beans>
