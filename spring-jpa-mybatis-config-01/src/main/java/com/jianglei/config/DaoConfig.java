@@ -60,6 +60,7 @@ public class DaoConfig {
     public SqlSessionFactory sqlSessionFactory(DataSource datasource) throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(datasource);
+        sessionFactory.setTypeAliasesPackage("com.jianglei.bean");
         return sessionFactory.getObject();
     }
 }

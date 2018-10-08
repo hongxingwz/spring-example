@@ -15,6 +15,7 @@
         <module>spring-mvc-context-loader-01</module>
         <module>spring-mvc-cutom-propert-editor-01</module>
         <module>spring-jpa-mybatis-config-01</module>
+        <module>mybatis-01</module>
     </modules>
     <packaging>pom</packaging>
 

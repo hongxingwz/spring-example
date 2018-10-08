@@ -34,17 +34,26 @@ public class UserServiceTest {
 
     @Test
     public void getByUsername() {
+        User o = userService.getByUsername("admin");
+        System.out.println(o);
     }
 
     @Test
     public void get() {
+        User o = userService.get("admin", "admin123");
+        System.out.println(o);
     }
 
     @Test
     public void update() {
+        User o = userService.getByUsername("admin");
+        o.setUsername("admin2");
+        o.setPassword("admin222");
+        userService.update(o);
     }
 
     @Test
     public void insertAndUpdate() {
+        userService.insertAndUpdate();
     }
 }

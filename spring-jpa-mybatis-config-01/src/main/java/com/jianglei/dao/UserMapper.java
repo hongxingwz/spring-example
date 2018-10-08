@@ -1,6 +1,7 @@
 package com.jianglei.dao;
 
 import com.jianglei.bean.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.SelectProvider;
 import org.apache.ibatis.annotations.UpdateProvider;
@@ -9,6 +10,7 @@ import org.apache.ibatis.annotations.UpdateProvider;
  * @author jianglei
  * @since 10/8/18
  */
+@Mapper
 public interface UserMapper {
 
     User getByUsername(@Param("username") String username);
