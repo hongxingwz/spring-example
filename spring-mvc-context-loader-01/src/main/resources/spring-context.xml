@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:annotation-config/>
+    <bean id="charBean" class="com.jianglei.bean.CharBean">
+        <property name="c" value="a"/>
+        <property name="bytes" value="aaa"/>
+        <property name="charset" value="utf-8"/>
+        <property name="classes" value="java.lang.String, java.lang.Object"/>
+        <property name="clazz" value="java.lang.String"/>
+        <property name="bool" value="1"/>
+        <property name="bool1" value="yes"/>
+        <property name="bool2" value="on"/>
+        <property name="bool3" value="true"/>
+        <property name="date" value="2017-09-12"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+
+            </list>
+        </property>
+    </bean>
+
+    <!--<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">-->
+        <!--<property name="customEditors">-->
+            <!--<map>-->
+                <!--<entry key="java.util.Date" value="com.jianglei.editor.DateEditor"/>-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <bean id="dateEditor" class="com.jianglei.editor.DateEditor">
+        <property name="dateFormat" value="yyyy-MM-dd"/>
+    </bean>
+
+    <!--<bean id="dateEditor2" class="com.jianglei.editor.DateEditor">-->
+        <!--<property name="dateFormat" value="yyyy-MM-dd hh:mm:ss"/>-->
+    <!--</bean>-->
+    <bean id="myRegistrar" class="com.jianglei.registrar.MyRegistrar">
+        <property name="propertyEditors">
+            <map>
+                <entry key="java.util.Date" value-ref="dateEditor"/>
+            </map>
+        </property>
+    </bean>
+    <bean id="customEditorConfigurer" class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="propertyEditorRegistrars">
+            <list>
+                <ref bean="myRegistrar"/>
+            </list>
+        </property>
+    </bean>
+</beans>

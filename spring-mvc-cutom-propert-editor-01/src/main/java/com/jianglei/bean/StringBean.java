@@ -1,12 +1,20 @@
 package com.jianglei.bean;
 
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.BeanFactoryAware;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.config.BeanFactoryPostProcessor;
+import org.springframework.beans.factory.config.BeanPostProcessor;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+
 import javax.annotation.PostConstruct;
 
 /**
  * @author jianglei
  * @since 8/3/18
  */
-public class StringBean {
+public class StringBean implements BeanFactoryPostProcessor, BeanPostProcessor, BeanNameAware, BeanFactoryAware {
 
     private String s1;
 
@@ -50,5 +58,33 @@ public class StringBean {
     @PostConstruct
     public void postConstruct() {
         System.out.println(toString());
+    }
+
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        System.out.println("执行postProcessBeanFactory()");
+    }
+
+    @Override
+    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("postProcessBeforeInitialization()");
+        return bean;
+    }
+
+    @Override
+    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
+        System.out.println("postProcessAfterInitialization()");
+        return bean;
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
+        System.out.println("setBeanFactory()");
+    }
+
+    @Override
+    public void setBeanName(String name) {
+        System.out.println("setBeanName()");
+
     }
 }
