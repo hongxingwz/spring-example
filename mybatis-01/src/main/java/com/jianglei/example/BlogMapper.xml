@@ -3,7 +3,39 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.mybatis.example.BlogMapper">
+
+    <resultMap id="hashmap" type="com.jianglei.example.Blog">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+    </resultMap>
+
     <select id="selectBlog" resultType="com.jianglei.example.Blog">
         select * from user_test where id = #{id}
     </select>
+
+    <select id="selectBlog2" resultType="Blog">
+        select * from user_test where id = #{id}
+    </select>
+
+    <select id="selectBlog3" resultType="Blog2">
+        select * from user_test where id = #{id}
+    </select>
+
+    <select id="selectBlog4" resultType="Blog3">
+        select * from user_test where id = #{id}
+    </select>
+
+    <select id="selectBlog5" resultMap="hashmap">
+        select * from user_test where id = #{id}
+    </select>
+
+
+    <select id="selectBlogWithUsernameLike" resultType="Blog">
+        SELECT * FROM user_test WHERE 1 = 1
+        <if test="username != null">
+            AND  username like #{username}
+        </if>
+    </select>
+
 </mapper>
